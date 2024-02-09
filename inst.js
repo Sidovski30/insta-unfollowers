@@ -27,7 +27,7 @@ const followingNum = +document.querySelector("div.x9f619.x1n2onr6.x1ja2u2z > div
 const followingOpen = document.querySelector("div.x9f619.x1n2onr6.x1ja2u2z header > section > ul > li:nth-child(3) > a")
 
 const closeSelector = 'div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div.x7r02ix.xf1ldfh.x131esax.xdajt7p.xxfnqb6.xb88tzc.xw2csxc.x1odjw0f.x5fp0pe > div > div > div.x1qjc9v5.x78zum5.xdt5ytf > div > div._ac7b._ac7d > div > button'
-const scrollBlock = 'div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div.x7r02ix.xf1ldfh.x131esax.xdajt7p.xxfnqb6.xb88tzc.xw2csxc.x1odjw0f.x5fp0pe > div > div > div._aano'
+const scrollBlock = 'body > div.x1n2onr6.xzkaem6 > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div.x7r02ix.xf1ldfh.x131esax.xdajt7p.xxfnqb6.xb88tzc.xw2csxc.x1odjw0f.x5fp0pe > div > div > div._aano'
 let scrolledPeople = '.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div.x7r02ix.xf1ldfh.x131esax.xdajt7p.xxfnqb6.xb88tzc.xw2csxc.x1odjw0f.x5fp0pe > div > div > div._aano > div:nth-child(1) > div > div > div > div > div > div.x9f619.x1n2onr6.x1ja2u2z.x78zum5.x1iyjqo2.xs83m0k.xeuugli.x1qughib.x6s0dn4.x1a02dak.x1q0g3np.xdl72j9 > div > div > div > div > div > a > div > div > span'
 
                      
@@ -46,17 +46,18 @@ let scrolledPeople = '.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h
   let folExtract = (follNum, follOpen, foll, nextFunc) => {
     follOpen.click()
     elReady(scrollBlock).then(el => {
-    const r = document.querySelector(scrollBlock)
+    
+    
     const start = () => {
+        const r = document.querySelector(scrollBlock)
         if(foll === 'followers') {
             followers = document.querySelectorAll(scrolledPeople)
             if(followers.length < (follNum)){
               console.log('followers: ', followers.length)
               let timeOut = setTimeout(() => {
-                
                 r.scrollTo(0, r.scrollHeight);
                 followers = document.querySelectorAll(scrolledPeople)
-              start();
+                start();
             }, 2000);  
             } else {
               console.log('done', followers.length)
@@ -69,7 +70,6 @@ let scrolledPeople = '.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h
             if(following.length < (follNum)){
               console.log('following :', following.length)
               let timeOut = setTimeout(() => {
-                  
                 r.scrollTo(0, r.scrollHeight);
                 following = document.querySelectorAll(scrolledPeople)
               start();
